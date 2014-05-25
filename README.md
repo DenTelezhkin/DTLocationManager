@@ -8,7 +8,7 @@ DTLocationManager is simple and lightweight wrapper for CLLocationManager API. I
 
 ### Where am I?
 
-Often you'll need to get current user location *once*. You can use `DTMomentaryLocationManager` for this:
+Often you'll need to get current user location **once**. You can use `DTMomentaryLocationManager` for this:
 
 ```objective-c
     self.locationManager = [DTMomentaryLocationManager new];
@@ -42,7 +42,7 @@ self.locationManager.timestampMaxAge = 120;
 
 ### Where am I over time?
 
-Sometimes you'll want location updates to be received over time. The API is similar, but we'll use `DTPeriodicLocationManager` for this.
+Sometimes you'll want location updates to be received **over time**. The API is similar, but we'll use `DTPeriodicLocationManager` for this.
 
 ```objective-c
     self.locationManager = [DTPeriodicLocationManager new];
@@ -73,7 +73,7 @@ Another thing to note is that all CLLocationManagerDelegate methods are trampoli
 ### Requirements
 
 * iOS 6 and higher
-* Mac OS Mavericks (10.9) and higher
+* Mac OS X Mavericks (10.9) and higher
 * ARC
 
 ### Installation
