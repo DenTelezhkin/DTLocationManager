@@ -156,32 +156,6 @@
     return NO;
 }
 
-- (void)locationManager:(CLLocationManager *)manager didDetermineState:(CLRegionState)state forRegion:(CLRegion *)region
-{
-    if ([self.delegate respondsToSelector:_cmd])
-    {
-        [self.delegate locationManager:manager
-                     didDetermineState:state
-                             forRegion:region];
-    }
-}
-
-- (void)locationManager:(CLLocationManager *)manager didRangeBeacons:(NSArray *)beacons inRegion:(CLBeaconRegion *)region
-{
-    if ([self.delegate respondsToSelector:_cmd])
-    {
-        [self.delegate locationManager:manager didRangeBeacons:beacons inRegion:region];
-    }
-}
-
-- (void)locationManager:(CLLocationManager *)manager rangingBeaconsDidFailForRegion:(CLBeaconRegion *)region withError:(NSError *)error
-{
-    if ([self.delegate respondsToSelector:_cmd])
-    {
-        [self.delegate locationManager:manager rangingBeaconsDidFailForRegion:region withError:error];
-    }
-}
-
 - (void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region
 {
     if ([self.delegate respondsToSelector:_cmd])
@@ -237,5 +211,36 @@
         [self.delegate locationManager:manager didFinishDeferredUpdatesWithError:error];
     }
 }
+
+#if TARGET_OS_IPHONE
+
+// These methods are only available for iOS
+
+- (void)locationManager:(CLLocationManager *)manager didDetermineState:(CLRegionState)state forRegion:(CLRegion *)region
+{
+    if ([self.delegate respondsToSelector:_cmd])
+    {
+        [self.delegate locationManager:manager
+                     didDetermineState:state
+                             forRegion:region];
+    }
+}
+
+- (void)locationManager:(CLLocationManager *)manager didRangeBeacons:(NSArray *)beacons inRegion:(CLBeaconRegion *)region
+{
+    if ([self.delegate respondsToSelector:_cmd])
+    {
+        [self.delegate locationManager:manager didRangeBeacons:beacons inRegion:region];
+    }
+}
+
+- (void)locationManager:(CLLocationManager *)manager rangingBeaconsDidFailForRegion:(CLBeaconRegion *)region withError:(NSError *)error
+{
+    if ([self.delegate respondsToSelector:_cmd])
+    {
+        [self.delegate locationManager:manager rangingBeaconsDidFailForRegion:region withError:error];
+    }
+}
+#endif
 
 @end
