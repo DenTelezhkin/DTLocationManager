@@ -57,13 +57,19 @@
 
 -(void)processNewLocation:(CLLocation *)location
 {
-    self.completion(location,LocationResultTypeSuccess);
+    if (self.completion)
+    {
+       self.completion(location,LocationResultTypeSuccess);
+    }
     [self stop];
 }
 
 -(void)timeoutReached
 {
-    self.completion(self.location,LocationResultTypeTimedOut);
+    if (self.completion)
+    {
+       self.completion(self.location,LocationResultTypeTimedOut);
+    }
 }
 
 - (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status

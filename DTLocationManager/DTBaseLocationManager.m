@@ -59,6 +59,8 @@
 
 - (void)startWithBlock:(LocationManagerCompletionBlock)completion
 {
+    NSParameterAssert(completion);
+    
     self.completion = completion;
     [self.manager startUpdatingLocation];
 }
