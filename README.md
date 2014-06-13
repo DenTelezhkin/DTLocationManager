@@ -1,3 +1,7 @@
+![CocoaPod platform](https://cocoapod-badges.herokuapp.com/p/DTLocationManager/badge.png) &nbsp; 
+![CocoaPod version](https://cocoapod-badges.herokuapp.com/v/DTLocationManager/badge.png) &nbsp; 
+![License MIT](https://go-shields.herokuapp.com/license-MIT-blue.png)
+
 DTLocationManager
 =================
 
