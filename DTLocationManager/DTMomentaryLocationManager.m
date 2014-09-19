@@ -44,7 +44,7 @@
 {
     [super startWithBlock:completion];
 
-    if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorized)
+    if ([self locationAuthorized])
     {
         if (self.timeout>0)
         {
@@ -77,7 +77,7 @@
     [super locationManager:manager
 didChangeAuthorizationStatus:status];
     
-    if (status == kCLAuthorizationStatusAuthorized)
+    if ([self locationAuthorized])
     {
         if (self.timeout>0)
         {

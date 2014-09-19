@@ -77,6 +77,8 @@ typedef void (^LocationManagerCompletionBlock)(CLLocation * location, LocationRe
  */
 @property (nonatomic, weak) id <CLLocationManagerDelegate> delegate;
 
+-(BOOL)locationAuthorized;
+
 /**
  Start updating location with completion block.
  

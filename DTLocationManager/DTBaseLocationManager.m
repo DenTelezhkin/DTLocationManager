@@ -55,6 +55,14 @@
     return _manager;
 }
 
+#pragma mark - location authorization
+
+-(BOOL)locationAuthorized
+{
+    return ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorizedAlways ||
+            [CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorizedWhenInUse);
+}
+
 #pragma mark - location processing
 
 - (void)startWithBlock:(LocationManagerCompletionBlock)completion
@@ -136,7 +144,8 @@
             [self stop];
             break;
             
-        case kCLAuthorizationStatusAuthorized:
+        case kCLAuthorizationStatusAuthorizedAlways:
+        case kCLAuthorizationStatusAuthorizedWhenInUse:
             break;
     }
 }
