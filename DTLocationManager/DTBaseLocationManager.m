@@ -152,7 +152,7 @@
         case kCLAuthorizationStatusAuthorizedAlways:
         case kCLAuthorizationStatusAuthorizedWhenInUse:
 #elif TARGET_OS_MAC
-        case case kCLAuthorizationStatusAuthorized:
+        case kCLAuthorizationStatusAuthorized:
 #endif
             break;
     }
