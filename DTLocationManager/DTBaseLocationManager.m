@@ -59,8 +59,13 @@
 
 -(BOOL)locationAuthorized
 {
+#if TARGET_OS_IPHONE
     return ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorizedAlways ||
-            [CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorizedWhenInUse);
+            [CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorizedWhenInUse);  
+#elif TARGET_OS_MAC
+    return ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorized);
+#endif
+    
 }
 
 #pragma mark - location processing
