@@ -65,7 +65,6 @@
 #elif TARGET_OS_MAC
     return ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorized);
 #endif
-    
 }
 
 #pragma mark - location processing
@@ -149,8 +148,12 @@
             [self stop];
             break;
             
+#if TARGET_OS_IPHONE
         case kCLAuthorizationStatusAuthorizedAlways:
         case kCLAuthorizationStatusAuthorizedWhenInUse:
+#elif TARGET_OS_MAC
+        case case kCLAuthorizationStatusAuthorized:
+#endif
             break;
     }
 }
