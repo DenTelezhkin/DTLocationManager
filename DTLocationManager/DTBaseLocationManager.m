@@ -115,7 +115,7 @@
         self.location = location;
     }
     
-    NSTimeInterval timestamp = -[[self.location timestamp] timeIntervalSinceNow];
+    NSTimeInterval timestamp = -[[location timestamp] timeIntervalSinceNow];
     if (self.desiredHorizontalAccuracy>=location.horizontalAccuracy && self.timestampMaxAge>=timestamp)
     {
         [self processNewLocation:location];

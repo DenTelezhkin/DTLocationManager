@@ -84,4 +84,4 @@ Another thing to note is that all CLLocationManagerDelegate methods are trampoli
 
 Install using Cocoapods,
 
-    pod 'DTLocationManager', '~> 0.1.0'
+    pod 'DTLocationManager', '~> 0.2.1'
