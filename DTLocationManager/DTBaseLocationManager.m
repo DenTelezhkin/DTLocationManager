@@ -74,7 +74,12 @@
     NSParameterAssert(completion);
     
     self.completion = completion;
-    [self.manager startUpdatingLocation];
+    if ([CLLocationManager locationServicesEnabled]){
+        [self.manager startUpdatingLocation];
+    }
+    else {
+        completion(nil,LocationResultTypeFailure);
+    }
 }
 
 -(void)stop

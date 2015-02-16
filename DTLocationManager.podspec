@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "DTLocationManager"
-  s.version      = "0.2.1"
+  s.version      = "0.2.2"
   s.summary      = "Simple location manager for iOS and Mac OS X"
 
   s.homepage     = "https://github.com/DenHeadless/DTLocationManager"
