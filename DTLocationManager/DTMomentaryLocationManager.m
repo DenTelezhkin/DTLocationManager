@@ -30,6 +30,8 @@
 
 @implementation DTMomentaryLocationManager
 
+@dynamic completion;
+
 - (id)init
 {
     self = [super init];

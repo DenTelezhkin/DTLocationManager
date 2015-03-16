@@ -23,6 +23,13 @@
 
 #import <CoreLocation/CoreLocation.h>
 
+#if __has_feature(nullability) // Xcode 6.3+
+#pragma clang assume_nonnull begin
+#else
+#define nullable
+#define __nullable
+#endif
+
 /**
  Protocol to receive location updates, that meet criteria.
  */
@@ -44,7 +51,7 @@ typedef NS_ENUM(NSInteger,LocationResultType)
     LocationResultTypeSuccess
 };
 
-typedef void (^LocationManagerCompletionBlock)(CLLocation * location, LocationResultType result);
+typedef void (^LocationManagerCompletionBlock)(__nullable CLLocation * location, LocationResultType result);
 
 /**
  `DTBaseLocationManager` is a base class, that receives location updates and filters them by precision and timestamps. It then calls processNewLocation: method, that is expected to be overridden in subclasses.
@@ -70,12 +77,12 @@ typedef void (^LocationManagerCompletionBlock)(CLLocation * location, LocationRe
 /**
  Completion block to be called, when location is identified. It is also called with nil result, when location services are disabled or not available on the device.
  */
-@property (nonatomic, copy) LocationManagerCompletionBlock completion;
+@property (nonatomic, copy, nullable) LocationManagerCompletionBlock completion;
 
 /**
  Optional delegate, that gets all `CLLocationManagerDelegate` methods trampolined.
  */
-@property (nonatomic, weak) id <CLLocationManagerDelegate> delegate;
+@property (nonatomic, weak, nullable) id <CLLocationManagerDelegate> delegate;
 
 -(BOOL)locationAuthorized;
 
@@ -92,3 +99,7 @@ typedef void (^LocationManagerCompletionBlock)(CLLocation * location, LocationRe
 -(void)stop;
 
 @end
+
+#if __has_feature(nullability)
+#pragma clang assume_nonnull end
+#endif
