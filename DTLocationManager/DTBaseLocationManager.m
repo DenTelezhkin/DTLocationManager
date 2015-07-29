@@ -145,11 +145,17 @@
         case kCLAuthorizationStatusNotDetermined:break;
             
         case kCLAuthorizationStatusRestricted:
-            self.completion(nil,LocationResultTypeFailure);
+            if (self.completion)
+            {
+                self.completion(nil,LocationResultTypeFailure);
+            }
             [self stop];
             break;
         case kCLAuthorizationStatusDenied:
-            self.completion(nil,LocationResultTypeFailure);
+            if (self.completion)
+            {
+                self.completion(nil,LocationResultTypeFailure);
+            }
             [self stop];
             break;
             
