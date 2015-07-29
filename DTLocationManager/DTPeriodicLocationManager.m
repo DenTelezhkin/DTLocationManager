@@ -27,7 +27,10 @@
 
 -(void)processNewLocation:(CLLocation *)location
 {
-    self.completion(location,LocationResultTypeSuccess);
+    if (self.completion)
+    {
+        self.completion(location,LocationResultTypeSuccess);
+    }
 }
 
 @end
