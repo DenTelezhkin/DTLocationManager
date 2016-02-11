@@ -83,6 +83,6 @@ Another thing to note is that all CLLocationManagerDelegate methods are trampoli
 
 ### Installation
 
-Install using Cocoapods,
+Install using CocoaPods,
 
     pod 'DTLocationManager', '~> 0.2.3'
