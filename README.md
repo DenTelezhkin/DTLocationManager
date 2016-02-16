@@ -76,7 +76,7 @@ Another thing to note is that all CLLocationManagerDelegate methods are trampoli
 
 ### Requirements
 
-* XCode 6.3 and higher
+* Xcode 6.3 and higher
 * iOS 6 and higher
 * Mac OS X Mavericks (10.9) and higher
 * ARC
